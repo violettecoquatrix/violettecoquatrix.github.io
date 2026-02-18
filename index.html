@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Violette Coquatrix | Fractional COO</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #0a0a0a;
+  --white: #fafafa;
+  --accent: #FF4D00;
+  --accent-light: #FF6B2B;
+  --gray-100: #f5f5f5;
+  --gray-200: #e5e5e5;
+  --gray-400: #a3a3a3;
+  --gray-600: #525252;
+  --gray-800: #262626;
+  --gray-900: #171717;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+}
+
+nav.scrolled {
+  padding: 0.75rem 2rem;
+}
+
+.nav-name {
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--gray-400);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta {
+  background: var(--accent) !important;
+  color: var(--white) !important;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+
+.nav-cta:hover { background: var(--accent-light) !important; }
+
+/* Sections */
+section {
+  padding: 7rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 6rem;
+  max-width: 900px;
+}
+
+.hero-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.2s;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.4s;
+}
+
+.hero h1 .highlight {
+  color: var(--accent);
+}
+
+.hero-sub {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  color: var(--gray-400);
+  line-height: 1.7;
+  max-width: 680px;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.6s;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--accent);
+  color: var(--white);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.8s;
+}
+
+.hero-cta:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+}
+
+.hero-cta .arrow {
+  transition: transform 0.2s;
+}
+
+.hero-cta:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Problem Section */
+.problem {
+  padding: 8rem 2rem;
+}
+
+.problem-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+.problem h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+}
+
+.problem-text {
+  font-size: 1.15rem;
+  color: var(--gray-400);
+  line-height: 1.8;
+  max-width: 700px;
+  margin-bottom: 3.5rem;
+}
+
+.problem-text strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.symptoms {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.symptom {
+  background: var(--gray-900);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.symptom:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.symptom-icon {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.symptom h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.symptom p {
+  font-size: 0.9rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+}
+
+/* About Section */
+.about {
+  padding: 8rem 2rem;
+  background: var(--gray-900);
+  max-width: 100%;
+}
+
+.about-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 3rem;
+}
+
+.career-path {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.career-step {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 2rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  align-items: start;
+}
+
+.career-step:last-child { border-bottom: none; }
+
+.career-company {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+
+.career-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.35rem;
+}
+
+.tag-startup {
+  background: rgba(255, 77, 0, 0.15);
+  color: var(--accent);
+}
+
+.tag-scaleup {
+  background: rgba(255, 107, 43, 0.12);
+  color: var(--accent-light);
+}
+
+.career-geo {
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  margin-top: 0.25rem;
+}
+
+.career-detail h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.career-detail p {
+  font-size: 0.92rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+}
+
+.career-detail .metric {
+  display: inline-block;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.about-summary {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--gray-400);
+  max-width: 700px;
+  padding-top: 1rem;
+  border-top: 2px solid var(--accent);
+}
+
+.about-summary strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* What I Do */
+.what-i-do {
+  padding: 8rem 2rem;
+}
+
+.what-i-do-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.what-i-do h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.what-i-do-sub {
+  font-size: 1.15rem;
+  color: var(--gray-400);
+  line-height: 1.8;
+  max-width: 700px;
+  margin-bottom: 4rem;
+}
+
+.what-i-do-sub strong {
+  color: var(--white);
+}
+
+.killer-sentence {
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--white);
+  border-left: 4px solid var(--accent);
+  padding-left: 1.5rem;
+  margin-bottom: 4rem;
+  max-width: 750px;
+}
+
+/* Offers */
+.offers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.offer-card {
+  background: var(--gray-900);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.offer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.offer-card:hover {
+  border-color: rgba(255, 77, 0, 0.3);
+  transform: translateY(-4px);
+}
+
+.offer-card:hover::before { opacity: 1; }
+
+.offer-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgba(255, 77, 0, 0.15);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.offer-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.offer-duration {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.offer-card p {
+  font-size: 0.92rem;
+  color: var(--gray-400);
+  line-height: 1.65;
+}
+
+/* Proof */
+.proof {
+  padding: 8rem 2rem;
+  background: var(--gray-900);
+  max-width: 100%;
+}
+
+.proof-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.proof h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 3.5rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.stat {
+  text-align: left;
+}
+
+.stat-number {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--gray-400);
+  line-height: 1.5;
+}
+
+.proof-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  align-items: center;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.proof-logo {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  letter-spacing: -0.01em;
+  transition: color 0.2s;
+}
+
+.proof-logo:hover { color: var(--gray-400); }
+
+/* Fit Section */
+.fit {
+  padding: 8rem 2rem;
+}
+
+.fit-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.fit h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 3.5rem;
+}
+
+.fit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.fit-col h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.fit-yes h3 { color: var(--accent); }
+.fit-no h3 { color: var(--gray-400); }
+
+.fit-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fit-list li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--gray-400);
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.fit-yes .fit-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.fit-no .fit-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 8px;
+  height: 2px;
+  background: var(--gray-600);
+}
+
+.fit-no .fit-list li {
+  color: var(--gray-600);
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 8rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, var(--black) 0%, rgba(255, 77, 0, 0.08) 100%);
+  max-width: 100%;
+}
+
+.cta-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-section h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.cta-text {
+  font-size: 1.1rem;
+  color: var(--gray-400);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--accent);
+  color: var(--white);
+  padding: 1.1rem 2.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: all 0.25s ease;
+  margin-bottom: 2rem;
+}
+
+.cta-button:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+}
+
+.cta-contact {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+}
+
+.cta-contact a {
+  color: var(--gray-400);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.cta-contact a:hover { color: var(--white); }
+
+/* Footer */
+footer {
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.25rem; }
+  .nav-links { display: none; }
+  section { padding: 5rem 1.25rem; }
+  .problem, .about, .proof, .cta-section { padding: 5rem 1.25rem; }
+  .career-step {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .fit-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Hamburger for mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+.hamburger span {
+  width: 22px;
+  height: 2px;
+  background: var(--white);
+  transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+}
+
+/* Scroll progress */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent);
+  z-index: 1001;
+  transition: width 0.1s;
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav id="nav">
+  <span class="nav-name">Violette Coquatrix</span>
+  <ul class="nav-links">
+    <li><a href="#problem">The Problem</a></li>
+    <li><a href="#about">Background</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#proof">Results</a></li>
+    <li><a href="#fit">Fit</a></li>
+    <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('show')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <span class="hero-label">Fractional COO</span>
+  <h1>When growth starts <span class="highlight">breaking things,</span> I fix the machine.</h1>
+  <p class="hero-sub">I step into fast-scaling companies where execution has become the risk. I stabilize operations, restore clarity, and leave once the system runs without me.</p>
+  <a href="#contact" class="hero-cta">Start a conversation <span class="arrow">&rarr;</span></a>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="problem-inner">
+    <span class="section-label reveal">The Pattern</span>
+    <h2 class="reveal">Everyone celebrates growth.<br>Few prepare for what it breaks.</h2>
+    <p class="problem-text reveal">
+      I've seen the same pattern across industries and continents. Demand accelerates. Operations lag. Inventory grows faster than clarity. Decisions slow down. Teams compensate with heroics. On the surface, things look fine. <strong>Underneath, execution quietly becomes the risk.</strong>
+    </p>
+    <div class="symptoms reveal">
+      <div class="symptom">
+        <div class="symptom-icon">&darr;</div>
+        <h3>Margins eroding</h3>
+        <p>Revenue grows, but costs grow faster. Nobody can explain where the money goes.</p>
+      </div>
+      <div class="symptom">
+        <div class="symptom-icon">&circlearrowright;</div>
+        <h3>Decisions stalling</h3>
+        <p>Everything escalates to the founder. The org can't move without one person in the room.</p>
+      </div>
+      <div class="symptom">
+        <div class="symptom-icon">&nwarr;</div>
+        <h3>Systems lagging</h3>
+        <p>Data doesn't match reality. Finance and Ops tell different stories. Nobody trusts the numbers.</p>
+      </div>
+      <div class="symptom">
+        <div class="symptom-icon">&oplus;</div>
+        <h3>Teams stretched thin</h3>
+        <p>Good people burning out. Heroics instead of systems. Execution depends on individuals, not process.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <span class="section-label reveal">Background</span>
+    <h2 class="reveal">19 years of building, scaling, and fixing operations.</h2>
+    <div class="career-path reveal">
+      <div class="career-step">
+        <div>
+          <div class="career-company">Endy</div>
+          <div class="career-tag tag-startup">Start-up</div>
+          <div class="career-geo">Canada</div>
+        </div>
+        <div class="career-detail">
+          <h3>Chief Operating Officer</h3>
+          <p>No operational backbone. Revenue scaling faster than everything else. I built operations from zero: supply chain, logistics, fulfillment, procurement, product ops, ERP, forecasting. Scaled to <span class="metric">~$200M revenue</span> with <span class="metric">700% growth in 4 years</span>. Cut delivery from 6+ days to 2.7. Pushed NPS from low 80s to 93. Maintained 95% in-stock through COVID while competitors struggled.</p>
+        </div>
+      </div>
+      <div class="career-step">
+        <div>
+          <div class="career-company">Fluence Energy</div>
+          <div class="career-tag tag-scaleup">Scale-up</div>
+          <div class="career-geo">Netherlands</div>
+        </div>
+        <div class="career-detail">
+          <h3>VP Supply Chain Operations EMEA</h3>
+          <p>Stepped into a <span class="metric">&euro;1B+ business</span> mid-flight during hyperscale growth. Built EMEA operations across multiple geographies. Cut lead times by 25%, costs by 7%. Co-led global AI deployment alongside SAP rollout. Shifted decisions from escalation-driven to system-driven.</p>
+        </div>
+      </div>
+      <div class="career-step">
+        <div>
+          <div class="career-company">Signify</div>
+          <div class="career-geo">Netherlands</div>
+        </div>
+        <div class="career-detail">
+          <h3>Head of Global SC Performance</h3>
+          <p>Restored visibility across a global supply chain with <span class="metric">300k+ SKUs</span>. Improved forecast accuracy by 10 points. Reduced inventory by 6%. Gave leadership control over trade-offs instead of late reactions.</p>
+        </div>
+      </div>
+      <div class="career-step">
+        <div>
+          <div class="career-company">Johnson & Johnson</div>
+          <div class="career-geo">Canada</div>
+        </div>
+        <div class="career-detail">
+          <h3>Supply Chain Leadership</h3>
+          <p>Regulated pharma, zero tolerance for failure. Led planning and S&OP for a <span class="metric">$2B portfolio</span>. Delivered <span class="metric">$8.5M annual cash-flow improvement</span>. Moved Canada from mid-ranking to top global performer within J&J.</p>
+        </div>
+      </div>
+      <div class="career-step">
+        <div>
+          <div class="career-company">Michelin</div>
+          <div class="career-geo">France & China</div>
+        </div>
+        <div class="career-detail">
+          <h3>Supply Chain & Operations</h3>
+          <p>Industrial fundamentals across 8 countries. Built inventory systems that lasted a decade. Contributed to a <span class="metric">&euro;50M savings program</span>. Where I learned that bad foundations always surface eventually.</p>
+        </div>
+      </div>
+    </div>
+    <p class="about-summary reveal">
+      From a start-up with nothing built to global organizations with 300,000 SKUs. Five industries. Three continents. <strong>The pattern is always the same: growth exposes weak foundations.</strong> I've spent my career making those foundations solid before they crack.
+    </p>
+  </div>
+</section>
+
+<!-- WHAT I DO -->
+<section class="what-i-do" id="approach">
+  <div class="what-i-do-inner">
+    <span class="section-label reveal">Approach</span>
+    <h2 class="reveal">I don't babysit operations.<br>I build the system that runs them.</h2>
+    <p class="what-i-do-sub reveal">
+      Most companies don't need another manager. They need someone who can see the full picture, <strong>design the right operating structure</strong>, install it, and leave. I work in close partnership with Finance to make sure Ops executes and the numbers are real. I don't replace your CFO. I make operations behave so Finance can trust them.
+    </p>
+    <div class="killer-sentence reveal">
+      "I make execution predictable and numbers trustworthy. Then I get out of the way."
+    </div>
+    <div class="offers reveal">
+      <div class="offer-card">
+        <div class="offer-number">01</div>
+        <h3>Operational Clarity Diagnostic</h3>
+        <div class="offer-duration">2-4 weeks &middot; Remote</div>
+        <p>A focused sprint to map your operational dysfunctions, decision bottlenecks, and hidden dependencies. You get a clear picture of what's broken and what to fix first.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-number">02</div>
+        <h3>Execution Reset</h3>
+        <div class="offer-duration">4-6 weeks &middot; Hybrid</div>
+        <p>Install a minimum viable operating structure: decision rights, KPIs, cadence, and accountability. Not theory. Working architecture that your team can run from day one.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-number">03</div>
+        <h3>Fractional COO</h3>
+        <div class="offer-duration">3-9 months &middot; 1-1.5 days/week</div>
+        <p>Hands-on operational leadership alongside the CEO. I stabilize, scale, or reset operations. Board-visible impact, with a clear exit once the machine runs without me.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-number">04</div>
+        <h3>Advisory Soundboard</h3>
+        <div class="offer-duration">Ongoing &middot; Remote</div>
+        <p>For established leaders who don't need execution help but want a senior thinking partner on high-stakes operational decisions. Strategic clarity on demand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof" id="proof">
+  <div class="proof-inner">
+    <span class="section-label reveal">Track Record</span>
+    <h2 class="reveal">Numbers, not narratives.</h2>
+    <div class="stats-grid reveal">
+      <div class="stat">
+        <div class="stat-number">$200M</div>
+        <div class="stat-label">Revenue scaled at Endy, from zero operational backbone</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">700%</div>
+        <div class="stat-label">Growth in 4 years with ops I built from scratch</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">&euro;7M+</div>
+        <div class="stat-label">Annual COGS savings delivered in a single year</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">93</div>
+        <div class="stat-label">NPS achieved, up from low 80s, through operational excellence</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">25%</div>
+        <div class="stat-label">Lead time reduction at Fluence Energy within 12 months</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">95%</div>
+        <div class="stat-label">In-stock maintained through COVID while competitors faltered</div>
+      </div>
+    </div>
+    <div class="proof-logos reveal">
+      <span class="proof-logo">Michelin</span>
+      <span class="proof-logo">Johnson & Johnson</span>
+      <span class="proof-logo">Endy (Sleep Country)</span>
+      <span class="proof-logo">Signify (Philips Lighting)</span>
+      <span class="proof-logo">Fluence Energy</span>
+    </div>
+  </div>
+</section>
+
+<!-- FIT -->
+<section class="fit" id="fit">
+  <div class="fit-inner">
+    <span class="section-label reveal">Fit</span>
+    <h2 class="reveal">This works when the match is right.</h2>
+    <div class="fit-grid reveal">
+      <div class="fit-col fit-yes">
+        <h3><span style="font-size:1.3rem">&#9679;</span> I work well with</h3>
+        <ul class="fit-list">
+          <li>Scale-ups where growth has outpaced operational foundations</li>
+          <li>Founders who want real answers, not comfort</li>
+          <li>Companies between $5M and $150M in revenue, 15 to 500 people</li>
+          <li>PE-backed or post-Series B environments with board pressure</li>
+          <li>Teams that value context over control, high standards, and directness</li>
+          <li>SaaS, e-commerce, CPG, and industrial businesses with operational depth</li>
+        </ul>
+      </div>
+      <div class="fit-col fit-no">
+        <h3><span style="font-size:1.3rem">&#9675;</span> I don't work well with</h3>
+        <ul class="fit-list">
+          <li>Highly political organizations where truth is optional</li>
+          <li>Cultures that reward mediocrity or docility</li>
+          <li>Companies that want slides instead of decisions</li>
+          <li>Environments where presence matters more than impact</li>
+          <li>Teams looking for a babysitter, not a builder</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <h2 class="reveal">If operations feel fragile instead of boring, let's talk.</h2>
+    <p class="cta-text reveal">I'm based in Amsterdam and work remotely across EU, UK, North America, and Asia. The first conversation is about understanding your situation, not selling. If I'm not the right fit, I'll tell you.</p>
+    <a href="mailto:violette.coquatrix@gmail.com" class="cta-button reveal">violette.coquatrix@gmail.com <span class="arrow">&rarr;</span></a>
+    <div class="cta-contact reveal">
+      <a href="https://linkedin.com/in/violette-coquatrix" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; Amsterdam, Netherlands &nbsp;&middot;&nbsp; EU & Canadian Citizen
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Violette Coquatrix. All rights reserved.
+</footer>
+
+<script>
+// Scroll progress bar
+window.addEventListener('scroll', () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const progress = (scrollTop / scrollHeight) * 100;
+  document.getElementById('progressBar').style.width = progress + '%';
+
+  // Nav shrink
+  document.getElementById('nav').classList.toggle('scrolled', scrollTop > 50);
+});
+
+// Reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
