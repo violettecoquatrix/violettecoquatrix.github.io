@@ -1,1 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M&A Operational Due Diligence | Violette Coquatrix</title>
+<meta name="description" content="Independent operational due diligence for M&A deal teams. I assess whether the operations behind the spreadsheets are real. 18+ years across Michelin, J&J, Signify, Fluence Energy, and a Canadian DTC scale-up.">
+<meta name="author" content="Violette Coquatrix">
+<link rel="canonical" href="https://violettecoquatrix.github.io/ma-due-diligence">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231B3A6B'/%3E%3Crect x='6' y='6' width='9' height='9' rx='1.5' fill='white'/%3E%3Crect x='17' y='6' width='9' height='9' rx='1.5' fill='white' opacity='0.6'/%3E%3Crect x='6' y='17' width='9' height='9' rx='1.5' fill='white' opacity='0.6'/%3E%3Crect x='17' y='17' width='9' height='9' rx='1.5' fill='white' opacity='0.35'/%3E%3C/svg%3E">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="M&A Operational Due Diligence | Violette Coquatrix">
+<meta property="og:description" content="The spreadsheets look fine. I tell you whether the operations behind them are real.">
+<meta property="og:url" content="https://violettecoquatrix.github.io/ma-due-diligence">
+
+<!-- Twitter/X Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="M&A Operational Due Diligence | Violette Coquatrix">
+<meta name="twitter:description" content="The spreadsheets look fine. I tell you whether the operations behind them are real.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --accent: #1B3A6B;
+  --accent-light: #2A5298;
+  --accent-bright: #3B6BC4;
+  --accent-faint: rgba(27, 58, 107, 0.08);
+  --bg: #ffffff;
+  --bg-alt: #eef1f6;
+  --bg-card: #ffffff;
+  --text: #111827;
+  --text-light: #374151;
+  --text-muted: #6b7280;
+  --border: #d1d5db;
+  --border-light: #e5e7eb;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Minimal top bar */
+.top-bar {
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.top-bar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-name {
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.top-cta {
+  background: var(--accent);
+  color: #ffffff;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.top-cta:hover { background: var(--accent-light); }
+
+/* Hero */
+.hero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 6rem 2rem 5rem;
+}
+
+.hero-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  background: rgba(27, 58, 107, 0.08);
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.2s;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.4s;
+}
+
+.hero h1 .highlight { color: var(--accent); }
+
+.hero-sub {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: var(--text-light);
+  line-height: 1.75;
+  max-width: 700px;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.6s;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.8s;
+}
+
+.hero-cta:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(27, 58, 107, 0.25);
+}
+
+.hero-cta .arrow { transition: transform 0.2s; }
+.hero-cta:hover .arrow { transform: translateX(4px); }
+
+/* Problem section */
+.problem {
+  padding: 5rem 2rem;
+  background: var(--bg-alt);
+}
+
+.problem-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  background: rgba(27, 58, 107, 0.08);
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+}
+
+.problem h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+.problem-text {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.problem-text:last-of-type { margin-bottom: 0; }
+
+.problem-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Deliver section */
+.deliver {
+  padding: 5rem 2rem;
+  background: var(--bg);
+}
+
+.deliver-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.deliver h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.deliver-sub {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  max-width: 700px;
+  margin-bottom: 3rem;
+}
+
+.deliver-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.deliver-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.deliver-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(27, 58, 107, 0.08);
+}
+
+.deliver-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.deliver-card p {
+  font-size: 0.92rem;
+  color: var(--text-light);
+  line-height: 1.65;
+}
+
+.deliver-output {
+  background: rgba(27, 58, 107, 0.04);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 1.5rem 2rem;
+  font-size: 1.05rem;
+  color: var(--text-light);
+  line-height: 1.75;
+}
+
+.deliver-output strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Why me section */
+.why-me {
+  padding: 5rem 2rem;
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.why-me-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.why-me h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5rem;
+  color: #ffffff;
+}
+
+.why-me-text {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+
+.why-me-text:last-of-type { margin-bottom: 0; }
+
+.why-me-text strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* CTA section */
+.cta-section {
+  padding: 5rem 2rem;
+  text-align: center;
+  background: var(--bg-alt);
+}
+
+.cta-inner {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.cta-section h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.cta-text {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 1.1rem 2.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: all 0.25s ease;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(27, 58, 107, 0.25);
+}
+
+.cta-contact {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.cta-contact a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.cta-contact a:hover { color: var(--accent); }
+
+/* Footer */
+footer {
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero { padding: 4rem 1.25rem 3.5rem; }
+  .problem, .deliver, .why-me, .cta-section { padding: 4rem 1.25rem; }
+  .top-bar { padding: 1rem 1.25rem; }
+  .deliver-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <span class="top-name">Violette Coquatrix</span>
+    <a href="#book-a-call" class="top-cta">Book a conversation</a>
+  </div>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-label">M&A Operational Due Diligence</span>
+  <h1>The spreadsheets look fine.<br>I tell you whether the <span class="highlight">operations behind them are real.</span></h1>
+  <p class="hero-sub">Financial DD gets done. Legal DD gets done. Operational DD gets rushed, delegated to generalists, or skipped entirely. That's where post-close surprises live.</p>
+  <a href="#book-a-call" class="hero-cta">Book a conversation <span class="arrow">&rarr;</span></a>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="problem-inner reveal">
+    <span class="section-label">The Gap</span>
+    <h2>Management presentations tell a story. The shop floor tells a different one.</h2>
+    <p class="problem-text">
+      Your financial model assumes margins hold, systems scale, and the team can execute a post-close plan. But nobody stress-tested those assumptions against how decisions actually get made inside this business. Nobody checked how dependent the supply chain is on two vendors who haven't been renegotiated in four years. Nobody asked whether the ERP data matches physical reality, or how much institutional knowledge lives in three people's heads.
+    </p>
+    <p class="problem-text">
+      <strong>You find this out after closing.</strong> And the first 100 days of ownership become a discovery phase instead of an execution phase. That costs integration momentum you can't get back.
+    </p>
+  </div>
+</section>
+
+<!-- WHAT I DELIVER -->
+<section class="deliver">
+  <div class="deliver-inner">
+    <span class="section-label reveal">What You Get</span>
+    <h2 class="reveal">Independent operational assessment, delivered within deal timelines.</h2>
+    <p class="deliver-sub reveal">A 3-to-6-week engagement that runs parallel to your financial and legal workstreams. AI-augmented data analysis lets me process operational data at speed without sacrificing depth.</p>
+    <div class="deliver-grid reveal">
+      <div class="deliver-card">
+        <h3>Decision rights & governance</h3>
+        <p>Who actually makes calls, how fast, and what happens when nobody's watching. The distance between the org chart and operational reality is where post-close friction hides.</p>
+      </div>
+      <div class="deliver-card">
+        <h3>Supply chain & procurement maturity</h3>
+        <p>Vendor concentration risk. Contract quality. Sourcing alternatives. How much negotiating leverage disappears if one supplier walks or one raw material spikes.</p>
+      </div>
+      <div class="deliver-card">
+        <h3>Process scalability</h3>
+        <p>What works at current volume versus what breaks at 2x. The difference between processes built to scale and ones held together by three people who know the workarounds.</p>
+      </div>
+      <div class="deliver-card">
+        <h3>Team capability & key-person risk</h3>
+        <p>Whether the operational team can execute a post-close integration plan, or you're inheriting a capability gap dressed up as a headcount number on a slide.</p>
+      </div>
+      <div class="deliver-card">
+        <h3>Quantified risk matrix & 100-day roadmap</h3>
+        <p>Red/amber/green findings with dollar impact. Prioritized post-close actions so your operating team starts with a plan, not a discovery phase. System and ERP readiness assessed as part of every finding.</p>
+      </div>
+    </div>
+    <div class="deliver-output reveal">
+      <strong>The deliverable:</strong> an executive-ready operational DD report that sits alongside your financial and legal advisors' work. Not a slide deck. A document with findings your operating partners can act on from day one.
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section class="why-me">
+  <div class="why-me-inner reveal">
+    <h2>I've assessed, built, and fixed the kinds of operations you're acquiring.</h2>
+    <p class="why-me-text">
+      At Fluence Energy, I ran multi-country supply chain operations across EMEA for a EUR 1B+ business growing at 35% CAGR. At Signify, I managed global supply chain performance across 300,000+ SKUs. <strong>Complex industrial operations with real consequences for getting it wrong.</strong> I've seen what "good" looks like inside these businesses, and I know where the gaps hide behind polished management presentations.
+    </p>
+    <p class="why-me-text">
+      As COO of a Canadian e-commerce company (<a href="https://endy.com" target="_blank" style="color: rgba(255,255,255,0.95); text-decoration: underline; text-underline-offset: 3px;">Endy</a>, sleep products), I built operations from zero and scaled to $200M revenue. I know what breaks when companies grow faster than their infrastructure. Before that, I cut my teeth on supply chain at Michelin and led planning for a $2B pharmaceutical portfolio at Johnson & Johnson.
+    </p>
+    <p class="why-me-text">
+      Eighteen years, five industries, three continents. I'm not a financial analyst learning ops vocabulary for your deal. I'm an operator who reads a management presentation and already knows which three claims to pressure-test on the floor.
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="book-a-call">
+  <div class="cta-inner reveal">
+    <h2>Have a deal in the pipeline?</h2>
+    <p class="cta-text">Let's talk about whether operational DD makes sense for your target. No pitch deck. A direct conversation about what you're seeing and what might be worth pressure-testing before you sign.</p>
+    <a href="#book-a-call" class="cta-button">Book a conversation <span class="arrow">&rarr;</span></a>
+    <div class="cta-contact">
+      <a href="mailto:violette.coquatrix@gmail.com">violette.coquatrix@gmail.com</a> &nbsp;&middot;&nbsp; Amsterdam, Netherlands
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  &copy; 2026 Violette Coquatrix. All rights reserved.
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
 
