@@ -1,1 +1,555 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operations Consulting for Mid-Size Companies | Violette Coquatrix</title>
+<meta name="description" content="Fractional COO and operations consulting for mid-size manufacturers, distributors, and wholesalers. You've invested in the systems. I make the operations match. 18+ years of experience.">
+<meta name="author" content="Violette Coquatrix">
+<link rel="canonical" href="https://violettecoquatrix.github.io/mid-size">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231B3A6B'/%3E%3Crect x='6' y='6' width='9' height='9' rx='1.5' fill='white'/%3E%3Crect x='17' y='6' width='9' height='9' rx='1.5' fill='white' opacity='0.6'/%3E%3Crect x='6' y='17' width='9' height='9' rx='1.5' fill='white' opacity='0.6'/%3E%3Crect x='17' y='17' width='9' height='9' rx='1.5' fill='white' opacity='0.35'/%3E%3C/svg%3E">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Operations Consulting for Mid-Size Companies | Violette Coquatrix">
+<meta property="og:description" content="You've invested in the systems. Now make the operations match.">
+<meta property="og:url" content="https://violettecoquatrix.github.io/mid-size">
+
+<!-- Twitter/X Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Operations Consulting for Mid-Size Companies | Violette Coquatrix">
+<meta name="twitter:description" content="You've invested in the systems. Now make the operations match.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --accent: #1B3A6B;
+  --accent-light: #2A5298;
+  --accent-bright: #3B6BC4;
+  --accent-faint: rgba(27, 58, 107, 0.08);
+  --bg: #ffffff;
+  --bg-alt: #eef1f6;
+  --bg-card: #ffffff;
+  --text: #111827;
+  --text-light: #374151;
+  --text-muted: #6b7280;
+  --border: #d1d5db;
+  --border-light: #e5e7eb;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Minimal top bar */
+.top-bar {
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.top-bar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-name {
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.top-cta {
+  background: var(--accent);
+  color: #ffffff;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.top-cta:hover { background: var(--accent-light); }
+
+/* Hero */
+.hero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 6rem 2rem 5rem;
+}
+
+.hero-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  background: rgba(27, 58, 107, 0.08);
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.2s;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.4s;
+}
+
+.hero h1 .highlight { color: var(--accent); }
+
+.hero-sub {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: var(--text-light);
+  line-height: 1.75;
+  max-width: 700px;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.6s;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.8s;
+}
+
+.hero-cta:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(27, 58, 107, 0.25);
+}
+
+.hero-cta .arrow { transition: transform 0.2s; }
+.hero-cta:hover .arrow { transform: translateX(4px); }
+
+/* Problem section */
+.problem {
+  padding: 5rem 2rem;
+  background: var(--bg-alt);
+}
+
+.problem-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  background: rgba(27, 58, 107, 0.08);
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+}
+
+.problem h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+.problem-text {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.problem-text:last-of-type { margin-bottom: 0; }
+
+.problem-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Engagement section */
+.engagements {
+  padding: 5rem 2rem;
+  background: var(--bg);
+}
+
+.engagements-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.engagements h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 3rem;
+  color: var(--text);
+}
+
+.engagement-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.engagement-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.engagement-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+
+.engagement-card:hover {
+  border-color: rgba(27, 58, 107, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(27, 58, 107, 0.12);
+}
+
+.engagement-card:hover::before { opacity: 1; }
+
+.engagement-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgba(27, 58, 107, 0.15);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.engagement-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.engagement-duration {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.engagement-card p {
+  font-size: 0.92rem;
+  color: var(--text-light);
+  line-height: 1.65;
+}
+
+.ai-note {
+  background: rgba(27, 58, 107, 0.04);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 1.5rem 2rem;
+  font-size: 1.05rem;
+  color: var(--text-light);
+  line-height: 1.75;
+}
+
+.ai-note strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Why me section */
+.why-me {
+  padding: 5rem 2rem;
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.why-me-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.why-me h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5rem;
+  color: #ffffff;
+}
+
+.why-me-text {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+
+.why-me-text:last-of-type { margin-bottom: 0; }
+
+.why-me-text strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* CTA section */
+.cta-section {
+  padding: 5rem 2rem;
+  text-align: center;
+  background: var(--bg-alt);
+}
+
+.cta-inner {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.cta-section h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.cta-text {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 1.1rem 2.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: all 0.25s ease;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(27, 58, 107, 0.25);
+}
+
+.cta-contact {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.cta-contact a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.cta-contact a:hover { color: var(--accent); }
+
+/* Footer */
+footer {
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero { padding: 4rem 1.25rem 3.5rem; }
+  .problem, .engagements, .why-me, .cta-section { padding: 4rem 1.25rem; }
+  .top-bar { padding: 1rem 1.25rem; }
+  .engagement-cards { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <span class="top-name">Violette Coquatrix</span>
+    <a href="#book-a-call" class="top-cta">Book a conversation</a>
+  </div>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-label">Operations Consulting &middot; EUR 20-200M Revenue</span>
+  <h1>You've invested in the systems.<br>Now make the <span class="highlight">operations match.</span></h1>
+  <p class="hero-sub">Your ERP is live. Your planning tools are running. But adoption is uneven, the ROI isn't materializing, and your team is still firefighting. The problem isn't the technology.</p>
+  <a href="#book-a-call" class="hero-cta">Book a conversation <span class="arrow">&rarr;</span></a>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="problem-inner reveal">
+    <span class="section-label">Sound Familiar?</span>
+    <h2>You grew on relationships, experience, and tribal knowledge. It worked until it didn't.</h2>
+    <p class="problem-text">
+      Cross-functional alignment between supply chain, finance, and commercial is held together by a few people who know where to look and who to call. S&OP exists on paper. In practice, it's a meeting where everyone shares updates and nobody makes decisions.
+    </p>
+    <p class="problem-text">
+      You brought in new tools to fix this. Inventory optimization, demand planning software, maybe a full ERP overhaul. <strong>But tools don't fix broken operating rhythms.</strong> They amplify whatever's already there. If the decisions, ownership, and cadence aren't working, better software just makes the dysfunction more visible.
+    </p>
+    <p class="problem-text">
+      And you know this. What you need isn't another consultant who bills by the slide. You need someone who's actually run operations at your scale, who can work alongside your team, and who'll leave behind something your people can maintain on their own.
+    </p>
+  </div>
+</section>
+
+<!-- ENGAGEMENTS -->
+<section class="engagements">
+  <div class="engagements-inner">
+    <span class="section-label reveal">How I Work</span>
+    <h2 class="reveal">Three ways in. Pick what fits, or we'll figure it out together.</h2>
+    <div class="engagement-cards reveal">
+      <div class="engagement-card">
+        <div class="engagement-number">01</div>
+        <h3>Operational Diagnostic</h3>
+        <div class="engagement-duration">2-4 weeks</div>
+        <p>An honest assessment of where the machine is breaking. Decision rights, process maturity, KPI reliability, team capability, system utilization. You get a clear picture and a prioritized action plan that fits on two pages. Not a 90-page report that collects dust.</p>
+      </div>
+      <div class="engagement-card">
+        <div class="engagement-number">02</div>
+        <h3>Execution Reset</h3>
+        <div class="engagement-duration">4-8 weeks</div>
+        <p>Install the operating architecture that turns your tools into results. S&OP cadence that produces decisions. Cross-functional ownership that doesn't depend on one person chasing everyone. KPIs that drive behavior instead of decorating dashboards. An ops-finance bridge so the numbers tell one story.</p>
+      </div>
+      <div class="engagement-card">
+        <div class="engagement-number">03</div>
+        <h3>Fractional COO</h3>
+        <div class="engagement-duration">3-9 months &middot; 1-2 days/week</div>
+        <p>Working alongside your leadership team to make the change stick. I'm there when the new process breaks, when the team pushes back, when old habits resurface. The goal isn't my continued presence. It's building internal capability until you don't need me.</p>
+      </div>
+    </div>
+    <div class="ai-note reveal">
+      <strong>AI-augmented delivery throughout:</strong> automated reporting, dashboards, pattern detection. I compress what used to take months into weeks because AI handles the data work and first-draft analysis. You get senior operational expertise and working AI workflows in one engagement, without inflating the timeline or the cost.
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section class="why-me">
+  <div class="why-me-inner reveal">
+    <h2>I've run the operations you're trying to fix.</h2>
+    <p class="why-me-text">
+      I know S&OP because I redesigned it at J&J and delivered $8.5M in annual cash-flow improvement. I know procurement because I managed supplier portfolios across eight countries at Michelin. I know what ERP adoption looks like when it works because I implemented two of them, and I know what it looks like when it doesn't because I've inherited that mess too.
+    </p>
+    <p class="why-me-text">
+      As COO of a Canadian e-commerce company (<a href="https://endy.com" target="_blank" style="color: rgba(255,255,255,0.95); text-decoration: underline; text-underline-offset: 3px;">Endy</a>, sleep products), I built operations from nothing and scaled to $200M revenue in four years. That's the closest thing to what you're living right now: a company that outgrew its infrastructure and needed someone to build the machine while it was running. I later ran multi-country supply chain at Fluence Energy and managed global SC performance at Signify across 300,000+ SKUs. <strong>But the Endy years are the ones that matter most for what you need.</strong>
+    </p>
+    <p class="why-me-text">
+      I build systems your team can maintain after I leave. That's the only measure of success that matters.
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="book-a-call">
+  <div class="cta-inner reveal">
+    <h2>Operations shouldn't depend on heroics.</h2>
+    <p class="cta-text">If your team is firefighting more than executing, let's talk. The first conversation is about your situation, not a sales pitch. If I'm not the right fit, I'll say so.</p>
+    <a href="#book-a-call" class="cta-button">Book a conversation <span class="arrow">&rarr;</span></a>
+    <div class="cta-contact">
+      <a href="mailto:violette.coquatrix@gmail.com">violette.coquatrix@gmail.com</a> &nbsp;&middot;&nbsp; Amsterdam, Netherlands
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  &copy; 2026 Violette Coquatrix. All rights reserved.
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
